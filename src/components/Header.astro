@@ -3,17 +3,19 @@
 ---
 
 <header>
-  <div> {/*This will serve as a wrapper/parent for the logo div and nav*/} 
-    <div> {/*I intend to put the logo here*/}</div>
-    <div> {/*this is wrapper for the nav, maybe this is unncesary*/}
-      <nav aria-label="Primary Navigation">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
+  <div class="flex flex-col items-center md:flex-row md:items-center md:justify-between w-full md:w-3/4 mx-auto py-4">
+    <div>LOGO {/*I intend to put the logo here*/}
+
     </div>
+
+    <nav aria-label="Primary Navigation">
+      <ul class="flex flex-wrap gap-3">
+        <li><a class="block px-3 py-2" href="/">Home</a></li>
+        <li><a class="block px-3 py-2" href="/about">About</a></li>
+        <li><a class="block px-3 py-2" href="/#services">Services</a></li>
+        <li><a class="block px-3 py-2" href="/#contact">Contact</a></li>
+  
+      </ul>
+    </nav>
   </div>
 </header>
