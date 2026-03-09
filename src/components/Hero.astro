@@ -2,13 +2,35 @@
 
 ---
 
-<section aria-label="Hero Section">
+<section
+  aria-label="Hero Section"
+  class="bg-brand-purple text-brand-off-white min-h-[40vh] flex flex-col justify-center p-4"
+>
   {/*This will be the hero container, and will act as a parent/wrapper*/}
-  <div>
-    {/*comment to chatgpt: this div will server as a inner hero/wrapper for the hero content*/}
-    <h1>Tech Help That Actually Moves Your Business Forward</h1>
-    <p>We provide innovative business first, goal focused tech solutions.</p>
-    <a href="#contact" class="btn">I'm Ready!</a>
-    <a href="#contact" class="btn">I have questions</a>
+  <div class="flex flex-col md:w-3/4 mx-auto px-4 md:px-0">
+    {
+      /*comment to chatgpt: this div will server as a inner hero/wrapper for the hero content*/
+    }
+    <h1 class="text-5xl font-bold">
+      Tech Help That Actually Moves Your Business Forward
+    </h1>
+    <p class="text-2xl mt-2">
+      We provide innovative business first, goal focused tech solutions.
+    </p>
+    <div class="flex gap-4 mt-6">
+      <a
+        href="#contact"
+        class="inline-flex items-center justify-center bg-brand-orange text-white border border-white font-semibold rounded-lg px-4 py-2 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+      >
+        I'm Ready!
+      </a>
+
+      <a
+        href="#services"
+        class="inline-flex items-center justify-center bg-brand-off-white text-brand-orange border border-brand-orange font-semibold rounded-lg px-4 py-2 hover:bg-brand-orange hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange"
+      >
+        I have questions
+      </a>
+    </div>
   </div>
 </section>
