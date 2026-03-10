@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import { wixClient } from "../lib/wix.js";
 import { media } from "@wix/sdk";
+import ServiceCard from "../components/ServiceCard.astro";
 
 const results = await wixClient.items
   .query("ServiceCards")
@@ -25,32 +26,19 @@ const serviceCards = results.items.map((card) => ({
     <h1 class="text-3xl font-bold">Wix Test</h1>
     <p class="mt-2">Cards found: {serviceCards.length}</p>
 
-    <ul class="mt-6 space-y-6">
+    <div class="mt-6 space-y-6">
       {
         serviceCards.map((card) => (
-          <li class="rounded-lg border p-4 w-full">
-            {card.imageUrl && (
-              <img
-                src={card.imageUrl}
-                alt={card.title}
-                class="h-48 w-full rounded object-cover"
-              />
-            )}
-            <div class="mt-4 flex items-center gap-3">
-              <i class={card.icon} aria-hidden="true" />
-              <h2 class="text-xl font-semibold">{card.title}</h2>
-            </div>
-            <p class="mt-2">{card.description}</p>
-
-            <a
-              href={`/services/${card.slug}`}
-              class="mt-4 inline-block rounded bg-brand-orange px-4 py-2 text-white"
-            >
-              {card.ctaLabel}
-            </a>
-          </li>
+          <ServiceCard
+            title={card.title}
+            description={card.description}
+            slug={card.slug}
+            ctaLabel={card.ctaLabel}
+            imageUrl={card.imageUrl}
+            icon={card.icon}
+          />
         ))
       }
-    </ul>
+    </div>
   </section>
 </BaseLayout>
