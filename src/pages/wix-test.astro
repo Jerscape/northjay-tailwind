@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { wixClient } from "../lib/wix.js";
+import { media } from "@wix/sdk";
+
+const results = await wixClient.items
+  .query("ServiceCards")
+  .ascending("order")
+  .find();
+
+const serviceCards = results.items.map((card) => ({
+  title: card.title_fld,
+  description: card.description_fld,
+  slug: card.slug,
+  ctaLabel: card.ctaLabel,
+  imageUrl: card.image_fld ? media.getImageUrl(card.image_fld).url : null,
+}));
+---
+
+<BaseLayout>
+  <section class="p-6">
+    <h1 class="text-3xl font-bold">Wix Test</h1>
+    <p class="mt-2">Cards found: {serviceCards.length}</p>
+
+    <ul class="mt-6 space-y-6">
+      {
+        serviceCards.map((card) => (
+          <li class="rounded-lg border p-4 w-full">
+            {card.imageUrl && (
+              <img
+                src={card.imageUrl}
+                alt={card.title}
+                class="h-48 w-full rounded object-cover"
+              />
+            )}
+
+            <h2 class="mt-4 text-xl font-semibold">{card.title}</h2>
+            <p class="mt-2">{card.description}</p>
+
+            <a
+              href={`/services/${card.slug}`}
+              class="mt-4 inline-block rounded bg-brand-orange px-4 py-2 text-white"
+            >
+              {card.ctaLabel}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
