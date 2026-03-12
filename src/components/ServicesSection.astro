@@ -1,0 +1,62 @@
+---
+import { wixClient } from "../lib/wix.js";
+import { media } from "@wix/sdk";
+import ServiceCard from "./ServiceCard.astro";
+
+const results = await wixClient.items
+  .query("ServiceCards")
+  .ascending("order")
+  .find();
+
+const serviceCards = results.items.map((card) => ({
+  title: card.title_fld,
+  description: card.description_fld,
+  slug: card.slug,
+  ctaLabel: card.ctaLabel,
+  imageUrl: card.image_fld ? media.getImageUrl(card.image_fld).url : null,
+  icon: card.icon,
+}));
+---
+
+<section id="services" class="py-12">
+  <div class="w-full md:w-3/4 mx-auto px-4 md:px-0">
+      <h2 class="text-3xl font-bold">How We Can Help</h2>
+  <p class="mt-3 text-xl">
+    Serving small and medium-sized businesses, we’re here to make technology work for your goals. We’re not just IT consultants—we’re business IT advisors. 
+    Our focus is on helping you use technology strategically, so it supports growth, efficiency, and long-term success.
+  </p>
+
+  <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {serviceCards.map((card) => (
+      <ServiceCard
+        title={card.title}
+        description={card.description}
+        slug={card.slug}
+        ctaLabel={card.ctaLabel}
+        imageUrl={card.imageUrl}
+        icon={card.icon}
+      />
+    ))}
+  </div>
+  </div>
+</section>
+
+<!-- <section id="services" class="p-6">
+  <h2 class="text-3xl font-bold">How We Can Help</h2>
+  <p class="mt-3 max-w-3xl">
+    Practical technology and business support tailored to your goals, your capacity, and the stage your organization is at.
+  </p>
+
+  <div class="mt-6 space-y-6">
+    {serviceCards.map((card) => (
+      <ServiceCard
+        title={card.title}
+        description={card.description}
+        slug={card.slug}
+        ctaLabel={card.ctaLabel}
+        imageUrl={card.imageUrl}
+        icon={card.icon}
+      />
+    ))}
+  </div>
+</section> -->
