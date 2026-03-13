@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import icon from "../assets/northjay-icon.png";
+import chamberLogo from "../assets/chamber-logo.png";
+---
+
+<footer class="bg-brand-blue py-10">
+  <ul class="flex justify-center space-x-4 py-5 text-brand-off-white">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+  <div class="flex justify-center">
+    <Image src={icon} alt="Northjay Solutions logo" class="w-20 h-auto" />
+  </div>
+  <div class="flex justify-center py-5">
+    <Image src={chamberLogo} alt="Thunder Bay Chamber of Commerce logo" class="w-20 h-auto"/>
+  </div>
+  <p class="text-center text-brand-off-white text-sm">Design by JDutton <br> © 2026 Northjay Solutions Inc.</p>
+</footer>
