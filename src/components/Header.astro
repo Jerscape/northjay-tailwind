@@ -1,20 +1,33 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../assets/northjay-logo.png";
+import logoMobile from "../assets/logo-mobile.png";
 ---
 
 <header>
   <div class="flex flex-col items-center md:flex-row md:items-center md:justify-between w-full md:w-3/4 mx-auto px-4 py-4 md:px-0">
     <div>
-      <Image src={logo} alt="Northjay Solutions logo" class="w-70 h-auto" />
+      <!-- <Image src={logo} alt="Northjay Solutions logo" class="w-70 h-auto" /> -->
+        <Image
+    src={logoMobile}
+    alt="Northjay Solutions logo"
+    class="block sm:hidden w-70 h-auto"
+  />
+
+  <Image
+    src={logo}
+    alt="Northjay Solutions logo"
+    class="hidden sm:block w-70 h-auto"
+  />
+      
     </div>
 
     <nav aria-label="Primary Navigation">
-      <ul class="flex flex-wrap gap-3">
-        <li><a class="block px-3 py-2" href="/">Home</a></li>
-        <li><a class="block px-3 py-2" href="/about">About</a></li>
-        <li><a class="block px-3 py-2" href="/#services">Services</a></li>
-        <li><a class="block px-3 py-2" href="/#contact">Contact</a></li>
+      <ul class="flex sm:flex-wrap sm:flex-row gap-2 sm:gap-3 flex-col mt-5">
+        <li class="text-2xl mx-auto"><a class="block sm: px-3 sm:py-2" href="/">Home</a></li>
+        <li class="text-2xl mx-auto"><a class="block sm: px-3 sm:py-2" href="/about">About</a></li>
+        <li class="text-2xl mx-auto"><a class="block sm: px-3 sm:py-2" href="/#services">Services</a></li>
+        <li class="adtext-2xl mx-auto"><a class="block sm: px-3 sm:py-2" href="/#contact">Contact</a></li>
   
       </ul>
     </nav>
