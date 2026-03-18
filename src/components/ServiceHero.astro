@@ -1,6 +1,9 @@
 ---
 
+const { heroHeading, heroText} = Astro.props;
 ---
+
+
 
 <section
   aria-label="Hero Section"
@@ -12,10 +15,10 @@
       /*comment to chatgpt: this div will server as a inner hero/wrapper for the hero content*/
     }
     <h1 class="text-5xl font-bold">
-      Tech Help...That Actually Moves Your Business Forward!
+      {heroHeading || "Digital Presence that Supports Your Goals"}
     </h1>
     <p class="text-2xl mt-2">
-      We provide goal focused, business first tech guidance and solutions on an iterative, project, or operational basis. Whatever your goal or challenge, we make tech work for you. 
+      {heroText || "From new websites to content updates and digital improvements, we help organizations build a stronger online presence."}
     </p>
     <div class="flex gap-4 mt-6">
       <a
@@ -27,7 +30,7 @@
 
       <a
         href="#services"
-        class="inline-flex items-center justify-center bg-brand-off-white text-brand-orange text-xl border-brand-orange font-semibold rounded-lg px-4 py-2 hover:bg-brand-orange hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange"
+        class="inline-flex items-center justify-center bg-brand-off-white text-brand-orange text-xl border border-brand-orange font-semibold rounded-lg px-4 py-2 hover:bg-brand-orange hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange"
       >
         I have a question...
       </a>

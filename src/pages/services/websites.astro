@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ServiceHero from "../../components/ServiceHero.astro";
+import { wixClient } from "../../lib/wix.js";
+import { media } from "@wix/sdk";
+
+const currentSlug = "websites";
+
+const results = await wixClient.items
+  .query("ServiceCards")
+  .eq("slug", currentSlug)
+  .find();
+
+const service = results.items[0];
+---
+
+<BaseLayout>
+  <ServiceHero
+    heroHeading={service.heroHeading}
+    heroText={service.heroText}
+  />
+</BaseLayout>
