@@ -2,8 +2,12 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ServiceHero from "../../components/ServiceHero.astro";
 import SplitFeatureSection from "../../components/SplitFeatureSection.astro";
+import IconsServiceMenu from "../../components/IconsServiceMenu.astro";
+import Footer from "../../components/footer.astro";
+
 import { wixClient } from "../../lib/wix.js";
 import { media } from "@wix/sdk";
+import { object } from "astro:schema";
 
 const currentSlug = "websites";
 
@@ -13,6 +17,10 @@ const results = await wixClient.items
   .find();
 
 const service = results.items[0];
+
+
+
+
 ---
 
 <BaseLayout>
@@ -20,6 +28,12 @@ const service = results.items[0];
     heroHeading={service.heroHeading}
     heroText={service.heroText}
   />
+
+<div class="px-10 py-10 text-2xl">
+  <p>{service.serviceDescriptionLong}</p>
+</div>
+
+<!-- <IconsServiceMenu /> -->
 
   <SplitFeatureSection
     splitServicesHeading={service.splitServicesHeading}
@@ -30,4 +44,6 @@ const service = results.items[0];
     imageUrl={service.image_fld ? media.getImageUrl(service.image_fld).url : null}
     imageAltText={service.imagealttext_fld}
   />
+  <IconsServiceMenu />
+  <Footer />
 </BaseLayout>
