@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroWithPicture from "../components/HeroWithPicture.astro";
+import ServicesSection from "../components/ServicesSection.astro";
+import NewFrontPage from "../components/NewFrontPage.astro";
+import FormMain from "../components/FormMain.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout>
+<HeroWithPicture
+  heroHeading="Don't know where to start? Start with us!"
+  heroText="We provide goal focused, business first tech guidance and solutions on an iterative, project, or operational basis. Whatever your goal or challenge, we make tech work for you. 
+    "
+  
+  heroImage="/images/jeremy-storm.png"
+  heroImageAlt="Example website planning image"
+/>
+  <NewFrontPage />
+  <FormMain />
+  <Footer />
+</BaseLayout>

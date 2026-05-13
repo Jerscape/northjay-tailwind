@@ -1,0 +1,50 @@
+---
+const { heroHeading, heroText, heroImage, heroImageAlt } = Astro.props;
+---
+
+<section
+  aria-label="Hero Section"
+  class="bg-brand-purple text-brand-off-white min-h-[50vh] flex flex-col justify-center"
+>
+  <div class="w-full md:w-3/4 mx-auto px-4 md:px-0 py-4">
+    <div class="grid grid-cols-1 sm:grid-cols-[3fr_2fr] gap-5 items-center">
+      
+      <div class="flex flex-col gap-5">
+        <h1 class="text-4xl md:text-5xl font-bold">
+          {heroHeading || "Tech Help...That Actually Moves Your Business Forward!"}
+        </h1>
+
+        <p class="text-xl md:text-2xl mt-2">
+          {heroText || "From new websites to content updates and digital improvements, we help organizations build a stronger online presence."}
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mt-6">
+          <a
+            href="#contact"
+            class="inline-flex items-center justify-center bg-brand-orange text-white text-xl border border-white font-semibold rounded-lg px-4 py-2 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            I'm Ready!
+          </a>
+
+          <a
+            href="#services"
+            class="inline-flex items-center justify-center bg-brand-off-white text-brand-orange text-xl border border-brand-orange font-semibold rounded-lg px-4 py-2 hover:bg-brand-orange hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange"
+          >
+            I have a question...
+          </a>
+        </div>
+      </div>
+
+      <div>
+        {heroImage && (
+          <img
+            src={heroImage}
+            alt={heroImageAlt || ""}
+            class="w-full h-auto rounded-lg block"
+          />
+        )}
+      </div>
+
+    </div>
+  </div>
+</section>

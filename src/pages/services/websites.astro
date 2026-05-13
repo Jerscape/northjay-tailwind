@@ -24,6 +24,17 @@ const service = results.items[0];
 ---
 
 <BaseLayout>
+  
+    <SplitFeatureSection
+    splitServicesHeading={service.splitServicesHeading}
+    overviewPoint1={service.bullet1}
+    overviewPoint2={service.bullet2}
+    overviewPoint3={service.bullet3}
+    buttonCta={service.ctaLabel} 
+    imageUrl={service.image_fld ? media.getImageUrl(service.image_fld).url : null}
+    imageAltText={service.imagealttext_fld}
+  />
+
   <ServiceHero
     heroHeading={service.heroHeading}
     heroText={service.heroText}

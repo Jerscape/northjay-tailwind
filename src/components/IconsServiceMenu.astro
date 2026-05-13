@@ -10,7 +10,7 @@ const iconRowData = (await wixClient.items
 <section class="flex flex-col md:py-15 gap-4 md:flex-row justify-between px-10 bg-brand-purple">
   {iconRowData.map((service) => (
     <div class="flex flex-col py-5 md:py-10 gap-5 flex items-center">
-      <h3 class="text-2xl text-brand-off-white">{service.title_fld}</h3>
+      <h3 class="text-2xl text-brand-off-white text-center">{service.title_fld}</h3>
       <i class={`${service.icon} text-6xl text-brand-off-white`} aria-hidden="true"></i>
       {/* <img src={service.icon} alt={service.title} /> */}
     </div>

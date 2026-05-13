@@ -1,0 +1,98 @@
+---
+import { wixClient } from "../lib/wix.js";
+import { media } from "@wix/sdk";
+import ServiceCard from "./ServiceCard.astro";
+
+const results = await wixClient.items
+  .query("ServiceCards")
+  .ascending("order")
+  .find();
+
+const serviceCards = results.items.map((card) => ({
+  title: card.title_fld,
+  description: card.description_fld,
+  slug: card.slug,
+  ctaLabel: card.ctaLabel,
+  imageUrl: card.image_fld ? media.getImageUrl(card.image_fld).url : null,
+  icon: card.icon,
+}));
+---
+
+<section id="services" class="py-16 bg-slate-50">
+  <div class="max-w-4xl mx-auto px-4 text-center mb-12">
+    <h2 class="text-4xl font-bold text-slate-900 mb-4">
+      Facts About Your Business Tech
+    </h2>
+    <p class="text-slate-700 text-2xl font-medium">
+      Whether you are a solo entrepreneur, or a successful fabricator, tech
+      works better when you don't do it alone.
+    </p>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 mb-16">
+    <ul class="space-y-4">
+      {/* Fact 1 */}
+      <li
+        class="flex gap-4 px-5 py-2 bg-white rounded-lg shadow-sm border border-slate-100"
+      >
+        <span class="text-blue-600 font-bold">01</span>
+        <p class="text-slate-700">
+          <strong>It's impossible to know everything.</strong> Even if you have the
+          know-how, it's hard to have the capacity to manage tech while focusing on
+          your core business.
+        </p>
+      </li>
+      {/* Fact 2 */}
+      <li
+        class="flex gap-4 px-5 py-3 bg-white rounded-lg shadow-sm border border-brand-purple items-start"
+      >
+        <div class="flex-shrink-0 mt-1">
+          <span class="text-blue-600 font-bold">02</span>
+        </div>
+        <div>
+          <p class="text-slate-700 leading-snug">
+            <strong class="text-slate-900">The "Out of the Box" Myth.</strong>
+            Software isn't ready-to-run on day one. It requires intentional setup, smart integrations, and ongoing coordination with your tech stack to stay aligned with your specific business goals.
+          </p>
+        </div>
+      </li>
+      {/* Fact 3 */}
+      <li
+        class="flex gap-4 px-5 py-2 bg-white rounded-lg shadow-sm border border-brand-orange"
+      >
+        <span class="text-blue-600 font-bold">03</span>
+        <p class="text-slate-700">
+          <strong>ROI Matters.</strong> Very few businesses get proper ROI out of
+          their tech spend. We help ensure that spend is meaningful and gets results.
+        </p>
+      </li>
+      {/* Fact 4 */}
+      <li
+        class="flex gap-4 px-5 py-2 bg-white rounded-lg shadow-sm border border-slate-100"
+      >
+        <span class="text-blue-600 font-bold">04</span>
+        <p class="text-slate-700">
+          <strong>Implementation is Key.</strong> Guidance isn't enough. You need
+          someone to take care of the details and just "make it work."
+        </p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="w-full md:w-3/4 mx-auto px-4">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        serviceCards.map((card) => (
+          <ServiceCard
+            title={card.title}
+            description={card.description}
+            slug={card.slug}
+            ctaLabel={card.ctaLabel}
+            imageUrl={card.imageUrl}
+            icon={card.icon}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
