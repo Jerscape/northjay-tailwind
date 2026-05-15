@@ -20,3 +20,44 @@ textarea,
 select {
   font: inherit;
 }
+
+@layer components {
+  /* The Base Structure */
+@layer components {
+  /* This top line ensures EVERY class here is a Flexbox (side-by-side) */
+  .fact-base, .fact-purple, .fact-orange, .fact-highlight, .fact-ghost {
+    @apply flex gap-4 px-5 py-3 rounded-lg transition-all duration-200 items-start;
+  }
+
+  .fact-purple {
+    @apply bg-white shadow-sm border border-brand-purple;
+  }
+
+  .fact-orange {
+    @apply bg-white shadow-sm border border-brand-orange;
+  }
+
+  .fact-highlight {
+    @apply bg-white shadow-sm border border-brand-highlight;
+  }
+}
+
+
+/* 4. THE STATEMENT BLOCK */
+  .statement-block {
+    @apply text-slate-700 text-2xl font-medium text-center leading-relaxed;
+  }
+
+  .statement-block strong {
+    @apply block text-4xl mb-6 antialiased tracking-tighter;
+    /* This targets the Montserrat Alternates you found */
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    /* A dramatic Indigo-Blue to make it pop */
+    /* color: #4338ca;  */
+   color: var(--color-brand-highlight); 
+   line-height: 1.1;
+  }
+
+}
