@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ServiceHero from "../../components/ServiceHero.astro";
+import SplitFeatureSection from "../../components/SplitFeatureSection.astro";
+import IconsServiceMenu from "../../components/IconsServiceMenu.astro";
+import IndividualService from "../../components/IndividualService.astro";
+import Footer from "../../components/footer.astro";
+
+import { wixClient } from "../../lib/wix.js";
+import { media } from "@wix/sdk";
+import { object } from "astro:schema";
+
+const currentSlug = "tech-checkup";
+
+const results = await wixClient.items
+  .query("ServiceCards")
+  .eq("slug", currentSlug)
+  .find();
+
+const service = results.items[0];
+
+---
+
+<BaseLayout>
+
+
+  <ServiceHero
+    heroHeading={service.heroHeading}
+    heroText={service.heroText}
+  />
+
+<IndividualService />
+
+<div class="py-10 text-2xl mx-auto w-3/4">
+  <p>{service.serviceDescriptionLong}</p>
+</div>
+
+<!-- <IconsServiceMenu /> -->
+
+  <SplitFeatureSection
+    splitServicesHeading={service.splitServicesHeading}
+    overviewPoint1={service.bullet1}
+    overviewPoint2={service.bullet2}
+    overviewPoint3={service.bullet3}
+    buttonCta={service.ctaLabel} 
+    imageUrl={service.image_fld ? media.getImageUrl(service.image_fld).url : null}
+    imageAltText={service.imagealttext_fld}
+  />
+  <IconsServiceMenu />
+  <Footer />
+</BaseLayout>
