@@ -5,6 +5,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import IndividualService from "../../components/IndividualService.astro";
 import ServiceHero from "../../components/ServiceHero.astro";
+import lightening from "/images/lightening.png";
+
 
 
 
@@ -13,16 +15,23 @@ export async function getStaticPaths() {
     .query("ServiceCards")
     .eq("isActive", true)
     .ascending("order")
-    .find();
+    .find({ consistentRead: true });
 
-  return results.items.map((service) => ({
-    params: {
-      slug: service.slug,
-    },
-    props: {
-      service,
-    },
-  }));
+  console.log("=== CURRENTLY GENERATING ASTRO ROUTES ===");
+
+  return results.items.map((service) => {
+    // Fixed: Using clean template literals (backticks on both sides)
+    console.log(`--> Generating route: /services/${service.slug}`);
+
+    return {
+      params: {
+        slug: service.slug,
+      },
+      props: {
+        service,
+      },
+    };
+  });
 }
 
 const { service } = Astro.props;
@@ -33,7 +42,11 @@ const { service } = Astro.props;
   <ServiceHero
     heroHeading={service.heroHeading}
     heroText={service.heroText}
+    heroImage="/images/lightening.png"
   />
-  <h1>{service.title_fld}</h1>
-  <IndividualService />
+
+<IndividualService 
+icon={service.icon} 
+service_pitch_headline={service.service_pitch_headline}
+/>
 
