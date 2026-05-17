@@ -1,0 +1,39 @@
+---
+import { wixClient } from "../../lib/wix.js";
+import { media } from "@wix/sdk";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import IndividualService from "../../components/IndividualService.astro";
+import ServiceHero from "../../components/ServiceHero.astro";
+
+
+
+export async function getStaticPaths() {
+  const results = await wixClient.items
+    .query("ServiceCards")
+    .eq("isActive", true)
+    .ascending("order")
+    .find();
+
+  return results.items.map((service) => ({
+    params: {
+      slug: service.slug,
+    },
+    props: {
+      service,
+    },
+  }));
+}
+
+const { service } = Astro.props;
+
+---
+
+<BaseLayout>
+  <ServiceHero
+    heroHeading={service.heroHeading}
+    heroText={service.heroText}
+  />
+  <h1>{service.title_fld}</h1>
+  <IndividualService />
+
