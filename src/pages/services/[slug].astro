@@ -5,9 +5,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import IndividualService from "../../components/IndividualService.astro";
 import ServiceHero from "../../components/ServiceHero.astro";
-import lightening from "/images/lightening.png";
-
-
+import IconsServiceMenu from "../../components/IconsServiceMenu.astro";
+import Footer from "../../components/footer.astro";
+import FormMain from "../../components/FormMain.astro";
+import ServicesSection from "../../components/ServicesSection.astro";
 
 
 export async function getStaticPaths() {
@@ -42,7 +43,7 @@ const { service } = Astro.props;
   <ServiceHero
     heroHeading={service.heroHeading}
     heroText={service.heroText}
-    heroImage="/images/lightening.png"
+    heroImage="/images/chair_laptop_left.png"
   />
 
 <IndividualService 
@@ -50,3 +51,10 @@ icon={service.icon}
 service_pitch_headline={service.service_pitch_headline}
 />
 
+<FormMain></FormMain>
+<IconsServiceMenu>
+  icon={service.icon}
+  title_fld={service.title_fld}
+</IconsServiceMenu>
+
+<Footer></Footer>

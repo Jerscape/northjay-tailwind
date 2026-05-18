@@ -1,19 +1,39 @@
 ---
 import { wixClient } from "../lib/wix.js";
 
-const iconRowData = (await wixClient.items
-  .query("ServiceCards")
-  .find()).items;
-
+const iconRowData = (await wixClient.items.query("ServiceCards").find()).items;
 ---
 
-<section class="flex flex-col md:py-15 gap-4 md:flex-row justify-between px-10 bg-brand-purple">
-  {iconRowData.map((service) => (
-    <div class="flex flex-col py-5 md:py-10 gap-5 flex items-center">
-      <h3 class="text-2xl text-brand-off-white text-center">{service.title_fld}</h3>
-      <i class={`${service.icon} text-6xl text-brand-off-white`} aria-hidden="true"></i>
-      {/* <img src={service.icon} alt={service.title} /> */}
-    </div>
-  ))}
-</section>
+<section class="flex flex-col md:py-10 gap-4 md:flex-row justify-between px-10 bg-brand-purple">
+  {
+    iconRowData.map((service) => {
+      // 1. Extract the raw filename directly from the wix:image:// string
+      // Example: wix:image://v1/605151_abc.png/... -> 605151_abc.png
+      const wixParts = service.image_fld ? service.image_fld.split('/') : [];
+      const fileName = wixParts[3] || "";
+      
+      // 2. Build a direct public web link using Wix's static asset domain
+      const browserImageUrl = fileName 
+        ? `https://static.wixstatic.com/media/${fileName}` 
+        : "";
 
+      return (
+        <div class="flex flex-col py-5 md:py-10 gap-5 items-center bg-brand-purple border-4 border-solid border-brand-orange w-full md:w-1/6">
+          <h3 class="text-2xl text-brand-off-white text-center">
+            {service.title_fld}
+          </h3>
+          
+          <i class={`${service.icon} text-6xl text-brand-off-white`} aria-hidden="true" />
+          
+          {browserImageUrl && (
+            <img 
+              src={browserImageUrl} 
+              alt={service.imagealttext_fld || ""} 
+              class=" h-auto object-cover p-4 "
+            />
+          )}
+        </div>
+      );
+    })
+  }
+</section>
