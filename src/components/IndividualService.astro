@@ -19,10 +19,14 @@ const serviceCards = results.items.map((card) => ({
 }));
 ---
 
+<div></div>
+
 <section id="services" class="py-10 bg-slate-50">
 
+<div class=" w-4/5 mx-auto">
+
   <div class="max-w-6xl mx-auto px-4 text-center mb-12">
-    <h2 class="text-5xl font-bold text-slate-900 mb-4">
+    <h2 class="text-5xl font-bold text-slate-900 mb-4 mt-4">
      {service_pitch_headline}
     </h2>
   </div>
@@ -40,9 +44,9 @@ const serviceCards = results.items.map((card) => ({
       {/* Fact 1 */}
 
       <li
-        class="fact-ghost"
+        class="fact-ghost flex items-start gap-3"
       >
-        <i class="fa-solid fa-comment-check text-[20px] text-brand-purple font-bold py-4"></i>
+        <i class="fa-solid fa-comment-check text-[20px] text-brand-highlight font-bold pt-2"></i>
         <p class="text-slate-700 text-lg">
           <strong>It's impossible to know everything.</strong> Even if you have the
           know-how, it's hard to have the capacity to manage tech while focusing on
@@ -54,7 +58,7 @@ const serviceCards = results.items.map((card) => ({
      <li
         class="fact-ghost"
       >
-        <i class="fa-solid fa-comment-check text-[20px] text-brand-orange font-bold py-4"></i>
+        <i class="fa-solid fa-comment-check text-[20px] text-blue-600 font-bold py-4"></i>
         <p class="text-slate-700 text-lg">
           <strong>The "Out of the Box" Myth:</strong>  Software isn't ready-to-run on day one. It requires intentional setup,
             smart integrations, & ongoing coordination with your tech stack to stay
@@ -104,5 +108,7 @@ const serviceCards = results.items.map((card) => ({
   <div class="flex justify-center py-8"><i class="fa-sharp fa-solid fa-arrow-down text-[120px]"></i></div>
 </div>
 
-
+</div>
 </section>
+
+
