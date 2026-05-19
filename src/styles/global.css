@@ -26,7 +26,17 @@ select {
 @layer components {
   /* This top line ensures EVERY class here is a Flexbox (side-by-side) */
   .fact-base, .fact-purple, .fact-orange, .fact-highlight, .fact-ghost {
-    @apply flex gap-4 px-5 py-3 rounded-lg transition-all duration-200 items-start;
+    @apply flex gap-4 px-5 py-3 rounded-lg transition-all duration-200 items-start
+  }
+
+    /* NEW: Global layout rules for ALL icons inside these cards */
+  .fact-base i, .fact-purple i, .fact-orange i, .fact-highlight i, .fact-ghost i {
+    @apply text-[20px] font-bold pt-2 shrink-0;
+  }
+
+  /* NEW: Global styling for ALL paragraphs inside these cards */
+  .fact-base p, .fact-purple p, .fact-orange p, .fact-highlight p, .fact-ghost p {
+    @apply text-slate-700 text-lg;
   }
 
   .fact-purple {
