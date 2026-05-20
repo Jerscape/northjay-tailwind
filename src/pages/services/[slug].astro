@@ -37,6 +37,11 @@ export async function getStaticPaths() {
 
 const { service } = Astro.props;
 
+// If Wix sends a broken card without a hero heading, skip it completely!
+if (!service || !service.heroHeading) {
+  return Astro.redirect('/404');
+}
+
 ---
 
 <BaseLayout>
