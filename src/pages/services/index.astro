@@ -1,0 +1,22 @@
+---
+import { wixClient } from "../../lib/wix.js";
+import { media } from "@wix/sdk";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import ServiceHero from "../../components/ServiceHero.astro";
+import ServicesSection from "../../components/ServicesSection.astro";
+import IconsServiceMenu from "../../components/IconsServiceMenu.astro";
+import FormMain from "../../components/FormMain.astro";
+import Footer from "../../components/Footer.astro";
+
+---
+
+  <BaseLayout>
+    <ServiceHero
+      heroHeading="Services"
+      heroText="Our Services are designed to be scalable and affordable for small businesses and organizations."
+      heroImage="/images/stool.png"
+    />
+    <ServicesSection />
+    <FormMain />
+  <Footer />

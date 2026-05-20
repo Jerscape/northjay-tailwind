@@ -1,17 +1,24 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
+import HeroWithPicture from "../components/HeroWithPicture.astro";
 import ServicesSection from "../components/ServicesSection.astro";
+import NewFrontPage from "../components/NewFrontPage.astro";
 import FormMain from "../components/FormMain.astro";
-import Footer from "../components/Footer.astro";
-
+import Footer from "../components/footer.astro";
 ---
 
-
-
 <BaseLayout>
-  <Hero />
-  <ServicesSection />
+<HeroWithPicture
+  heroHeading="Don't know where to start? Start with us!"
+  heroText="We provide goal focused, business first tech guidance, set up, and upkeep. 
+    "
+
+
+    heroImage="/images/laptop-glow.png"
+    
+  heroImageAlt="Example website planning image"
+/>
+  <NewFrontPage />
   <FormMain />
   <Footer />
 </BaseLayout>
