@@ -7,11 +7,6 @@ export default defineConfig({
     
   },
 
-  base: '/northjay-tailwind/', // <-- Add this exact line!
-
-    build: {
-    assetsPrefix: '/northjay-tailwind/'
-  }
 
 
 });
