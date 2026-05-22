@@ -2,7 +2,7 @@
 import { wixClient } from "../lib/wix.js";
 import { media } from "@wix/sdk";
 import ServiceCard from "./ServiceCard.astro";
-const { icon, service_pitch_headline } = Astro.props;
+const { icon, service_pitch_headline, bulletHeading_1, bulletHeading_2, bulletHeading_3, bullet1, bullet2, bullet3 } = Astro.props;
 
 const results = await wixClient.items
   .query("ServiceCards")
@@ -46,7 +46,7 @@ const serviceCards = results.items.map((card) => ({
 <li class="fact-ghost">
   <i class="fa-solid fa-comment-check text-brand-highlight"></i>
   <p>
-    <strong>Business-first, not just tech-focused: </strong> We aim to understand both your current tech setup and your business goals, so our recommendations support what you are actually trying to achieve.
+    <strong>{bulletHeading_1}: </strong> {bullet1}
   </p>
 </li>
 
@@ -55,7 +55,7 @@ const serviceCards = results.items.map((card) => ({
 <li class="fact-ghost">
   <i class="fa-solid fa-comment-check text-brand-highlight"></i>
   <p>
-    <strong>A thoughtful two-way conversation: </strong> You can ask questions, share context, and talk through what is working or not. Afterward, we’ll take time to reflect on what we heard and follow up in writing so you have something to reference.
+    <strong>{bulletHeading_2} </strong> {bullet2}
   </p>
 </li>
 
@@ -63,7 +63,8 @@ const serviceCards = results.items.map((card) => ({
 <li class="fact-ghost">
   <i class="fa-solid fa-comment-check text-brand-highlight"></i>
   <p>
-    <strong>NO OBLIGATION: </strong> We hope you'll continue to work with us, but if not that's OK. We might follow up on occasion, <span class="underline bold decoration-2 font-bold font-style: italic">but we won't bombard you with marketing emails or calls.</span>
+    <strong>{bulletHeading_3}: </strong> {bullet3}
+  </p>
 </li>
     </ul>
   </div>
@@ -77,7 +78,7 @@ const serviceCards = results.items.map((card) => ({
 <div class="max-w-6xl mx-auto px-6 py-3 text-left ">
   <p class="statement-block">
     <strong>
-      Book your free call <span class="underline">TODAY</span> 
+      Contact us <span class="bg-gradient-to-t from-[var(--color-brand-highlight)] to-transparent bg-[length:100%_25%] bg-no-repeat bg-bottom pb-1">BELOW</span> 
     </strong>
   </p>
   <!-- <div class="flex justify-center py-8"><i class="fa-sharp fa-solid fa-arrow-down text-[120px]"></i></div> -->
