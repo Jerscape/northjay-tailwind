@@ -1,22 +1,22 @@
 ---
-
+const { serviceName = "contactform" } = Astro.props;
 ---
 
-<section id="contact"class="bg-brand-purple flex flex-col py-10 px-5">
+<section id="contact" class="bg-brand-purple flex flex-col py-10 px-5">
   <h2 class="text-brand-off-white mx-auto mb-5 text-3xl font-bold text-center">Ready to Get Started? <br> Have a Question?</h2>
   <form class="mx-auto flex flex-col w-full sm:w-130 border-3 border-brand-off-white rounded-sm border-solid p-5">
     <label class="text-brand-off-white rounded-sm" for="name" >Name:</label>
-    <input class="bg-brand-off-white rounded-sm mb-4 min-h-10" type="text" id="name" name="name" required />
+    <input class="bg-brand-off-white rounded-sm mb-4 min-h-10 p-2" type="text" id="name" name="name" required />
 
-    <label class="text-brand-off-white" for-"email">Email:</label>
-    <input class="bg-brand-off-white rounded-sm mb-4 min-h-10" type="email" id="email" name="email" required />
+    <label class="text-brand-off-white" for="email">Email:</label>
+    <input class="bg-brand-off-white rounded-sm mb-4 min-h-10 p-2" type="email" id="email" name="email" required />
 
-    <label class="text-brand-off-white" for="Phone">Phone:</label>
-    <input class="bg-brand-off-white rounded-sm mb-4 min-h-10" type="tel" id="phone" name="phone" required />
+    <label class="text-brand-off-white" for="phone">Phone:</label>
+    <input class="bg-brand-off-white rounded-sm mb-4 min-h-10 p-2" type="tel" id="phone" name="phone" required />
 
-    <label class="text-brand-off-white" for="email">How can we help?</label>
-    <textarea class="bg-brand-off-white rounded-sm mb-4 sm:min-h-30 min-h-50" id="messagebody" name="messagebody" required></textarea>
-
+    <label class="text-brand-off-white" for="messagebody">How can we help?</label>
+    <textarea class="bg-brand-off-white rounded-sm mb-4 sm:min-h-30 min-h-50 p-2" id="messagebody" name="messagebody" required></textarea>
+    <input type="hidden" name="service_name" value={serviceName} />
     <button class="bg-brand-orange text-white border border-white font-semibold rounded-lg px-4 py-2 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" type="submit">Submit</button>
   </form>
 </section>
