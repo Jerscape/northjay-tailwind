@@ -9,6 +9,7 @@ import IconsServiceMenu from "../../components/IconsServiceMenu.astro";
 import Footer from "../../components/Footer.astro";
 import FormMain from "../../components/FormMain.astro";
 import ServicesSection from "../../components/ServicesSection.astro";
+import About from "../../components/About.astro";
 
 
 export async function getStaticPaths() {
@@ -70,6 +71,9 @@ bottomCta={service.bottomCta}
 <FormMain
 serviceName={service.title_fld}
 />
+
+<About/>
+
 <IconsServiceMenu
   icon={service.icon}
   title_fld={service.title_fld}
