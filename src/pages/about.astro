@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroWithPicture from "../components/HeroWithPicture.astro";
+import ServicesSection from "../components/ServicesSection.astro";
+import NewFrontPage from "../components/NewFrontPage.astro";
+import FormMain from "../components/FormMain.astro";
+import Footer from "../components/Footer.astro";
+import About from "../components/About.astro";
+---
+
+<BaseLayout>
+<HeroWithPicture
+  heroHeading="Is Your Tech Costing You Time, Leads, & Sales?"
+  heroText="We provide guidance, set up, and ongoing optimization that supports your business goals."
+
+  heroImage="/images/laptop-glow.png"
+  heroImageAlt="Example website planning image"
+/>
+  <About />
+  <FormMain />
+  <Footer />
+</BaseLayout>

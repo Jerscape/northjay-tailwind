@@ -2,7 +2,7 @@
 import { wixClient } from "../lib/wix.js";
 import { media } from "@wix/sdk";
 import ServiceCard from "./ServiceCard.astro";
-const { icon, service_pitch_headline, bulletHeading_1, bulletHeading_2, bulletHeading_3, bullet1, bullet2, bullet3 } = Astro.props;
+const { icon, service_pitch_headline, bulletHeading_1, bulletHeading_2, bulletHeading_3, bullet1, bullet2, bullet3, bottomCta } = Astro.props;
 
 const results = await wixClient.items
   .query("ServiceCards")
@@ -16,6 +16,7 @@ const serviceCards = results.items.map((card) => ({
   ctaLabel: card.ctaLabel,
   imageUrl: card.image_fld ? media.getImageUrl(card.image_fld).url : null,
   icon: card.icon,
+ 
 }));
 ---
 
@@ -77,9 +78,10 @@ const serviceCards = results.items.map((card) => ({
 
 <div class="max-w-6xl mx-auto px-6 py-3 text-left ">
   <p class="statement-block">
-    <strong>
+    <strong text-xl>{bottomCta}</strong>
+    <!-- <strong>
       Contact us <span class="bg-gradient-to-t from-[var(--color-brand-orange)] to-transparent bg-[length:100%_25%] bg-no-repeat bg-bottom pb-1">BELOW</span> 
-    </strong>
+    </strong> -->
   </p>
   <!-- <div class="flex justify-center py-8"><i class="fa-sharp fa-solid fa-arrow-down text-[120px]"></i></div> -->
 </div>
