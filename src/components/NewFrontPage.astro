@@ -2,6 +2,9 @@
 import { wixClient } from "../lib/wix.js";
 import { media } from "@wix/sdk";
 import ServiceCard from "./ServiceCard.astro";
+import FormMain from "./FormMain.astro";
+import ServicesSection from "./ServicesSection.astro";
+import ServicesFirstPage from "./ServicesFirstPage.astro";
 
 const results = await wixClient.items
   .query("ServiceCards")
@@ -111,20 +114,5 @@ software, systems, and workflows work better for your business.
 
 
 
-  <div class="w-full md:w-3/4 mx-auto px-4" id="services">
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {
-        serviceCards.map((card) => (
-          <ServiceCard
-            title={card.title}
-            description={card.description}
-            slug={card.slug}
-            ctaLabel={card.ctaLabel}
-            imageUrl={card.imageUrl}
-            icon={card.icon}
-          />
-        ))
-      }
-    </div>
-  </div>
+
 </section>
