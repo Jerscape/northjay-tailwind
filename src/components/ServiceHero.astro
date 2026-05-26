@@ -20,7 +20,7 @@ const { heroHeading, heroText, heroImage, heroImageAlt } = Astro.props;
         </p>
 
         <!-- Added items-center to center the buttons on mobile -->
-        <div class="flex flex-col sm:flex-row gap-4 mt-6 items-center sm:items-start">
+        <div class="flex flex-col sm:flex-row gap-4 mt-6 items-center sm:items-start sm: py-10">
           <a
             href="#contact"
             class="w-full sm:w-auto inline-flex items-center justify-center bg-brand-orange text-white text-xl border border-white font-semibold rounded-lg px-4 py-2 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
@@ -29,16 +29,20 @@ const { heroHeading, heroText, heroImage, heroImageAlt } = Astro.props;
           </a>
 
           <a
-            href="#services"
+            href="#contact"
             class="w-full sm:w-auto inline-flex items-center justify-center bg-brand-off-white text-brand-orange text-xl border border-brand-orange font-semibold rounded-lg px-4 py-2 hover:bg-brand-orange hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange"
           >
             I have a question...
           </a>
+
+
+
+
         </div>
       </div>
 
       <!-- Added order-1 for mobile, centered image on mobile, right-aligned on desktop -->
-      <div class="flex items-center justify-center sm:justify-end order-1 sm:order-2">
+      <div class="flex items-center justify-center sm:justify-end order-1 sm:order-2" >
         {heroImage && (
           <img
             src={heroImage}

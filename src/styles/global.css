@@ -63,6 +63,8 @@ select {
     /* This targets the Roboto you found */
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
+    padding-left: 1rem;
+    padding-right: 1rem;
     /* font-style: italic; */
     /* A dramatic Indigo-Blue to make it pop */
     /* color: #4338ca;  */
