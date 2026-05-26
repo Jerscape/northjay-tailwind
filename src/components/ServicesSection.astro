@@ -16,34 +16,42 @@ const serviceCards = results.items.map((card) => ({
   imageUrl: card.image_fld ? media.getImageUrl(card.image_fld).url : null,
   icon: card.icon,
 }));
-
-
-
 ---
 
-<section id="services" class="py-12">
-  <div class="w-full md:w-3/4 mx-auto px-4 md:px-0">
-      <h2 class="text-3xl font-bold">Stop Just Fixing Problems. Start Winning with Your Tech.</h2>
-  <p class="mt-3 text-xl">
-  We serve small and medium-sized businesses to help you get more out of your software applications. For us, winning isn’t just fixing setup problems after they happen. It’s about being proactive. We plan and optimize your tech to actively drive growth, efficiency, and long-term success. That is what winning looks like.
-  </p>
+<section id="services" class="py-6">
+  <div class="w-full md: mx-auto px-4 py-4 md:px-0">
+    <h1 class="text-4xl font-bold underline text-center mb-10">Our Services</h1>
+    <p class="mt-3 text-xl">
+      <div class="w-full md:w-3/4 mx-auto px-4 md:px-0">
+        <h2 class="text-2xl font-bold">
+          Stop Just Fixing Problems. Start Winning with Your Tech.
+        </h2>
+        <p class="mt-3 text-xl">
+          We serve small and medium-sized businesses to help you get more out of
+          your software applications. For us, winning isn’t just fixing setup
+          problems after they happen. It’s about being proactive. We plan and
+          optimize your tech to actively drive growth, efficiency, and long-term
+          success. That is what winning looks like.
+        </p>
 
-  <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-    {serviceCards.map((card) => (
-      <ServiceCard
-        title={card.title}
-        description={card.description}
-        slug={card.slug}
-        ctaLabel={card.ctaLabel}
-        imageUrl={card.imageUrl}
-        icon={card.icon}
-      />
-    ))}
-  </div>
-  </div>
-</section>
+        <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {
+            serviceCards.map((card) => (
+              <ServiceCard
+                title={card.title}
+                description={card.description}
+                slug={card.slug}
+                ctaLabel={card.ctaLabel}
+                imageUrl={card.imageUrl}
+                icon={card.icon}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </p>
 
-<!-- <section id="services" class="p-6">
+    <!-- <section id="services" class="p-6">
   <h2 class="text-3xl font-bold">How We Can Help</h2>
   <p class="mt-3 max-w-3xl">
     Practical technology and business support tailored to your goals, your capacity, and the stage your organization is at.
@@ -62,3 +70,5 @@ const serviceCards = results.items.map((card) => ({
     ))}
   </div>
 </section> -->
+  </div>
+</section>
