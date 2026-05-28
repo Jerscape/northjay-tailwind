@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroWithPicture from "../components/HeroWithPicture.astro";
+import ServicesSection from "../components/ServicesSection.astro";
+import BookingCalendar from "../components/BookingCalendar.astro";
+import Footer from "../components/Footer.astro";
+
+---
+
+<BaseLayout>
+  <HeroWithPicture
+    heroHeading="Book Your Free Business Tech Checkup"
+    heroText="We'll review your current tech setup and provide personalized recommendations to help you achieve your business goals."
+    heroImage="/images/robot_turned.png"
+    heroImageAlt="Example website planning image"
+  />
+  <BookingCalendar contactFormHeader="Schedule Your Free Business Tech Checkup" />
+  <Footer />
+</BaseLayout>
