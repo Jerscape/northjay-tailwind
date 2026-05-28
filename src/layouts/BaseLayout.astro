@@ -21,6 +21,59 @@ import Header from "../components/Header.astro";
       gtag("config", "G-SFGEWSS46L");
     </script>
 
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "@id": "https://northjaysolutions.com/#business",
+        name: "Northjay Solutions",
+        url: "https://northjaysolutions.com",
+        sameAs: ["https://www.linkedin.com/company/northjay-solutions"],
+        telephone: "+1-807-220-0853",
+        description:
+          "Northjay Solutions provides business technology consulting, software implementation, workflow improvement, websites, reporting, integrations, and part-time technology support for small and medium-sized businesses.",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Thunder Bay",
+          addressRegion: "ON",
+          addressCountry: "CA",
+        },
+        areaServed: [
+          {
+            "@type": "Place",
+            name: "Thunder Bay",
+          },
+          {
+            "@type": "AdministrativeArea",
+            name: "Northwestern Ontario",
+          },
+          {
+            "@type": "AdministrativeArea",
+            name: "Northern Ontario",
+          },
+          {
+            "@type": "Country",
+            name: "Canada",
+          },
+        ],
+        serviceType: [
+          "Business technology consulting",
+          "Technology advisory",
+          "Technology audits",
+          "Technology project management",
+          "Software implementation",
+          "CRM implementation",
+          "CRM support",
+          "Workflow improvement",
+          "Website development",
+          "Reporting and dashboards",
+          "Business process automation",
+          "Part-time technology support",
+        ],
+      })}
+    />
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script
