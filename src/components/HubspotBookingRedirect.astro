@@ -1,0 +1,77 @@
+---
+import { wixClient } from "../lib/wix.js";
+import { media } from "@wix/sdk";
+import ServiceCard from "./ServiceCard.astro";
+
+const {
+  icon,
+  service_pitch_headline,
+  bulletHeading_1,
+  bulletHeading_2,
+  bulletHeading_3,
+  bullet1,
+  bullet2,
+  bullet3,
+  bottomCta,
+} = Astro.props;
+
+const results = await wixClient.items
+  .query("ServiceCards")
+  .ascending("order")
+  .find();
+
+const serviceCards = results.items.map((card) => ({
+  title: card.title_fld,
+  description: card.description_fld,
+  slug: card.slug,
+  ctaLabel: card.ctaLabel,
+  imageUrl: card.image_fld ? media.getImageUrl(card.image_fld).url : null,
+  icon: card.icon,
+}));
+---
+
+<div></div>
+
+<section id="redirectmain" class="py-5 bg-brand-purple">
+  <!-- Changed "flex items-center gap-8" to "flex flex-col md:flex-row items-center md:items-start gap-8" -->
+  <div
+    class="max-w-6xl mx-auto px-1 mb-4 flex flex-col md:flex-row items-center md:items-start gap-2"
+    id="two-column"
+  >
+    <!-- NEW: This flex column container binds your image and caption together -->
+    <div id="image-con" class="flex flex-col items-center shrink-0">
+      <!-- Note: Ensure "w-75" is defined in your tailwind config, otherwise use "w-72" or a standard size -->
+      <img
+        src="/images/laptop-glow.png"
+        alt="Jeremy Dutton"
+        class="w-75 h-75"
+      />
+      <!-- <figcaption class="mt-3 text-center text-xl font-medium text-slate-600">
+      We'll get back to you shortly!
+    </figcaption> -->
+    </div>
+
+    <div
+      id="thank-you-message"
+      class="flex justify-center items-center min-h-[250px] flex-col gap-3 py-5"
+    >
+      <h1 class="text-4xl w-full font-bold mb-5 text-brand-off-white text-left px-5">
+        Thank You! 
+      </h1>
+      <ul class="space-y-4 ">
+        {/* Point 1 */}
+        <li id="redirect-li" class="fact-ghost">
+          <p id="redirect-para" class="text-xl text-brand-off-white">
+            <strong
+              >You will receive a Google Calendar meeting invite shortly! <br><br> 
+              In
+              the meantime, we encourage you to peruse our services below.
+              We bring a large breadth and depth of experience, and are happy to
+              customize our offerings or packages to your needs.
+            </strong>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

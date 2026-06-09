@@ -1,0 +1,24 @@
+---
+const {
+  serviceName = "contactform",
+  contactFormHeader = "Ready to Get Started?",
+  contactFormMessagePrompt = "Let us know how we can help you",
+} = Astro.props;
+---
+
+<section id="calendar" class="flex flex-col bg-brand-purple">
+  <h2
+    class="text-brand-off-white mx-auto mb-15 mt-15 text-5xl font-bold text-center sm:w-300"
+  >
+    {contactFormHeader || "Ready to Get Started?"}
+  </h2>
+  <div
+    class="mx-auto flex flex-col w-full sm:w-250 border-5 border-brand-orange rounded-sm border-solid p-1 bg-white mb-15"
+  >
+    <!-- Start of Meetings Embed Script -->
+    <div class="meetings-iframe-container" data-src="https://meetings-na3.hubspot.com/jeremy-dutton/business-tech-checkup?embed=true"></div>
+    <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+  <!-- End of Meetings Embed Script -->
+</section>
+
+

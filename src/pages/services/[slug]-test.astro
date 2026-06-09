@@ -8,11 +8,9 @@ import ServiceHero from "../../components/ServiceHero.astro";
 // import IconsServiceMenu from "../../components/IconsServiceMenu.astro";
 import Footer from "../../components/Footer.astro";
 import FormMain from "../../components/FormMain.astro";
-import BookingCalendar from "../../components/BookingCalendar.astro";
 import ServicesSection from "../../components/ServicesSection.astro";
 import About from "../../components/About.astro";
-import HubspotCalendar from "../../components/HubspotCalendar.astro";
-import TechCheckupForm from "../../components/TechCheckupForm.astro";
+import BookingCalendar from "../../components/BookingCalendar.astro";
 
 
 export async function getStaticPaths() {
@@ -49,14 +47,25 @@ const { service } = Astro.props;
 ---
 
 <BaseLayout>
-  <ServiceHero
+  <!-- <ServiceHero
     heroHeading={service.heroHeading}
-    hero_button_cta={service.hero_button_cta}
     heroText={service.heroText}
     heroImage="/images/robot_turned.png"
-    book_btn_href={service.slug === "tech-checkup" ? "#calendar" : "#contact"}
-/>
+  
+  /> -->
 
+
+
+<!-- <FormMain
+serviceName={service.title_fld}
+contactFormHeader={service.contactFormHeader}
+contactFormMessagePrompt={service.contactFormMessagePrompt}
+/> -->
+
+<BookingCalendar
+  contactFormHeader={service.contactFormHeader}
+  contactFormMessagePrompt={service.contactFormMessagePrompt}
+/>
 
 <IndividualService 
 icon={service.icon} 
@@ -73,40 +82,11 @@ bullet3={service.bullet3}
 bottomCta={service.bottomCta}
 />
 
-  {
-    service.slug === "tech-checkup" ? (
-      // <BookingCalendar
-      //   serviceName={service.title_fld}
-      //   contactFormHeader={service.contactFormHeader}
-
-      <HubspotCalendar
-        serviceName={service.title_fld}
-        contactFormHeader={service.contactFormHeader}
-        contactFormMessagePrompt={service.contactFormMessagePrompt}
-       
-      />
-    ) : (
-      <FormMain
-        serviceName={service.title_fld}
-        contactFormHeader={service.contactFormHeader}
-        contactFormMessagePrompt={service.contactFormMessagePrompt}
-      />
-    )
-  }
-
 <About/>
 
-{
-  service.slug === "tech-checkup" && (
-    <TechCheckupForm
-      serviceName={service.title_fld}
-      contactFormHeader={service.contactFormHeader}
-      contactFormMessagePrompt={service.contactFormMessagePrompt}
-    />
-  )
-}
-
+<!-- <IconsServiceMenu
+  icon={service.icon}
+  title_fld={service.title_fld}
+/> -->
 
 <Footer></Footer>
-
-</BaseLayout>

@@ -33,79 +33,63 @@ const serviceCards = results.items.map((card) => ({
 <div></div>
 
 <section id="services" class="py-10 bg-slate-50">
- <!-- Changed "flex items-center gap-8" to "flex flex-col md:flex-row items-center md:items-start gap-8" -->
-<div class="max-w-6xl mx-auto px-4 mb-4 flex flex-col md:flex-row items-center md:items-start gap-8">
-  <!-- NEW: This flex column container binds your image and caption together -->
-  <div class="flex flex-col items-center shrink-0 mt-2">
-    <!-- Note: Ensure "w-75" is defined in your tailwind config, otherwise use "w-72" or a standard size -->
-    <img
-      src="/images/JeremyProfile.png"
-      alt="Jeremy Dutton"
-      class="w-75 h-auto rounded-full"
-    />
-    <figcaption class="mt-3 text-center text-base font-medium text-slate-600">
-      Jeremy Dutton - CEO
-    </figcaption>
+  <div
+    id="wrapper"
+    class="max-w-6xl mx-auto px-4 mb-4 flex flex-col md:flex-row items-stretch md:items-start gap-8"
+  >
+    <div id="image-container" class="flex flex-col items-center shrink-0">
+      <img
+        src="/images/JeremyProfile.png"
+        alt="Jeremy Dutton"
+        class="w-75 h-auto rounded-full"
+      />
+      <figcaption class="mt-3 text-center text-base font-medium text-slate-600">
+        Jeremy Dutton - CEO
+      </figcaption>
+    </div>
+
+    <div
+      id="right-column"
+      class="w-full flex flex-col items-center gap-8 mt-8 md:mt-0"
+    >
+      <div id="text-container" class="w-full flex flex-col items-center gap-4">
+        <p>
+          I started my career on the business side before going back to school
+          to study computer programming and software development. Since then, I
+          have helped businesses improve how they use their websites, software
+          tools, workflows, customer tracking, reporting, and everyday tech
+          processes.
+        </p>
+
+        <p>
+          I started Northjay because I saw a common problem: small businesses
+          rely on technology every day, but often do not have someone available
+          to help make that technology actually work for them. That is
+          especially true for many small businesses and organizations in
+          Northwestern Ontario, where teams are lean, budgets are practical, and
+          people are often wearing a lot of different hats.
+        </p>
+
+        <p>
+          My approach combines business analysis, project management, software
+          knowledge, and process improvement. I do not just look at the tool
+          itself. I look at how it fits into your work, your team, your
+          customers, and your goals, so the technology you use supports the way
+          your business actually runs.
+        </p>
+      </div>
+
+      <a
+        id="invitation"
+        href="#contact"
+        class="max-w-6xl mx-auto mt-25 px-6 py-3 text-left block"
+      >
+        <p class="statement-block">
+          <strong>
+            Have questions? I'm <span class="underline">always</span> up for a chat!
+          </strong>
+        </p>
+      </a>
+    </div>
   </div>
-
-
-<div class="w-full flex flex-col items-center gap-4 mt-8">
-  <!-- Place your <ul> here -->
-   <ul class="space-y-4 flex-1">
-    {/* Point 1 */}
-    <li class="fact-ghost">
-      <p>
-        <strong>Twin Pillars of Experience: </strong>
-        I started off my career in Business before going back to school to study
-        computer programming and software. Since then I have assisted numerous
-        businesses with improving how they use their tech tools. These twin pillars
-        of experience allow me to bring unique insight into how business process
-        and goals interact with technology. 
-      </p>
-    </li>
-
-    {/* Point 2 */}
-    <li class="fact-ghost">
-      <p>
-        <strong>Built for Small Businesses in Northwestern Ontario:</strong>
-        I started Northjay because I saw a common problem: small businesses rely
-        on technology every day, but they often do not have someone available
-        to help make that technology actually work for them. That is especially
-        true for many small businesses and organizations in Northwestern Ontario,
-        where teams are often lean, budgets are practical, and people wear a lot
-        of different hats.
-      </p>
-    </li>
-
-    {/* Point 3 */}
-    <li class="fact-ghost">
-      <p>
-        <strong>Practical Business Tech Support: </strong>
-        I bring a mix of business analysis, project management, software, and
-        process improvement experience. That means I do not just look at the tool
-        itself. I look at how it fits into your work, your team, your customers,
-        and your goals.
-      </p>
-    </li>
-  </ul>
-  <!-- Place your "Have questions" div here -->
-  
-<a href="#contact" class="max-w-6xl mx-auto px-6 py-3 text-left block">
-    <p class="statement-block">
-      <!-- <strong text-xl>{bottomCta}</strong> -->
-      <strong>
-        Have questions? I'm <span class="underline">always</span> up for a chat!
-      </strong>
-    </p>
-    <!-- <div class="flex justify-center py-8"><i class="fa-sharp fa-solid fa-arrow-down text-[120px]"></i></div> -->
-</a>
-  <a></a>
-</div>
-
-  
-  
-</div>
-
-
-  
 </section>

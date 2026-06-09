@@ -1,0 +1,95 @@
+---
+import { wixClient } from "../../lib/wix.js";
+import { media } from "@wix/sdk";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import IndividualService from "../../components/IndividualService.astro";
+import ServiceHero from "../../components/ServiceHero.astro";
+// import IconsServiceMenu from "../../components/IconsServiceMenu.astro";
+import Footer from "../../components/Footer.astro";
+import FormMain from "../../components/FormMain.astro";
+import ServicesSection from "../../components/ServicesSection.astro";
+import About from "../../components/About.astro";
+import BookingCalendar from "../../components/BookingCalendar.astro";
+import BookingTechCheckUpBullets from "../../components/BookingTechCheckUpBullets.astro";
+
+
+const results = await wixClient.items
+  .query("ServiceCards")
+  .eq("slug", "tech-checkup")
+  .eq("isActive", true)
+  .limit(1)
+  .find({ consistentRead: true });
+
+const service = results.items[0];
+
+if (!service) {
+  throw new Error("Service card not found: tech-checkup");
+}
+
+const serviceTitle = service.title_fld;
+const serviceDescription = service.description_fld;
+
+
+// If Wix sends a broken card without a hero heading, skip it completely!
+// if (!service || !service.heroHeading) {
+//   return Astro.redirect('/404');
+// }
+
+---
+
+<BaseLayout>
+  <ServiceHero
+    heroHeading={service.heroHeading}
+    heroText={service.heroText}
+    heroImage="/images/robot_turned.png"
+  
+  />
+
+<!-- <IndividualService 
+icon={service.icon} 
+service_pitch_headline={service.service_pitch_headline}
+
+bulletHeading_1={service.bullet_heading_1}
+bulletHeading_2={service.bullet_heading_2}
+bulletHeading_3={service.bullet_heading_3}
+
+bullet1={service.bullet1}
+bullet2={service.bullet2}
+bullet3={service.bullet3}
+
+bottomCta={service.bottomCta}
+/> -->
+
+
+<BookingTechCheckUpBullets
+  icon={service.icon}
+  service_pitch_headline={service.service_pitch_headline}
+
+  bulletHeading_1={service.bullet_heading_1}
+  bulletHeading_2={service.bullet_heading_2}
+  bulletHeading_3={service.bullet_heading_3}
+
+  bullet1={service.bullet1}
+  bullet2={service.bullet2}
+  bullet3={service.bullet3}
+
+  bottomCta={service.bottomCta}
+/>
+
+<BookingCalendar
+  contactFormHeader={service.contactFormHeader}
+  contactFormMessagePrompt={service.contactFormMessagePrompt}
+/>
+
+<About/>
+<FormMain
+contactFormHeader="I Have a question..."
+
+/>
+<!-- <IconsServiceMenu
+  icon={service.icon}
+  title_fld={service.title_fld}
+/> -->
+
+<Footer></Footer>

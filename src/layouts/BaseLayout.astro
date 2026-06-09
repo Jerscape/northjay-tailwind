@@ -5,94 +5,139 @@ import Header from "../components/Header.astro";
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      is:inline
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-SFGEWSS46L"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+<head>
+  <!-- 1. CRITICAL METADATA (Must be at the very top) -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Northjay Solutions</title>
 
-      gtag("config", "G-SFGEWSS46L");
-    </script>
+  <!-- 2. ANALYTICS & TRACKING SCRIPTS -->
+  <!-- Google tag (gtag.js) -->
+  <script
+    is:inline
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SFGEWSS46L"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-SFGEWSS46L");
+  </script>
 
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "@id": "https://northjaysolutions.com/#business",
-        name: "Northjay Solutions",
-        url: "https://northjaysolutions.com",
-        sameAs: ["https://www.linkedin.com/company/northjay-solutions"],
-        telephone: "+1-807-220-0853",
-        description:
-          "Northjay Solutions provides business technology consulting, software implementation, workflow improvement, websites, reporting, integrations, and part-time technology support for small and medium-sized businesses.",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Thunder Bay",
-          addressRegion: "ON",
-          addressCountry: "CA",
+  <!-- Meta Pixel Code -->
+  <script is:inline>
+    !(function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod
+          ? n.callMethod.apply(n, arguments)
+          : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = "2.0";
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(
+      window,
+      document,
+      "script",
+      "https://connect.facebook.net/en_US/fbevents.js",
+    );
+    fbq("init", "1739326907480694");
+    fbq("track", "PageView");
+  </script>
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=1739326907480694&ev=PageView&noscript=1"
+    />
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- Warmly -->
+  <script
+    id="warmly-script-loader"
+    src="https://opps-widget.getwarmly.com/warmly.js?clientId=3b73cbe7ccaf3c7cceadc871e9d4752e"
+    defer></script>
+
+  <!-- 3. STYLES, FONTS & ASSETS -->
+  <script
+    src="https://kit.fontawesome.com/380f44c1dd.js"
+    crossorigin="anonymous"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat+Alternates:wght@600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- 4. STRUCTURED DATA / SEO SCHEMA -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": "https://northjaysolutions.com/#business",
+      name: "Northjay Solutions",
+      url: "https://northjaysolutions.com",
+      sameAs: ["https://www.linkedin.com/company/northjay-solutions"],
+      telephone: "+1-807-220-0853",
+      description:
+        "Northjay Solutions provides business technology consulting, software implementation, workflow improvement, websites, reporting, integrations, and part-time technology support for small and medium-sized businesses.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Thunder Bay",
+        addressRegion: "ON",
+        addressCountry: "CA",
+      },
+      areaServed: [
+        {
+          "@type": "Place",
+          name: "Thunder Bay",
         },
-        areaServed: [
-          {
-            "@type": "Place",
-            name: "Thunder Bay",
-          },
-          {
-            "@type": "AdministrativeArea",
-            name: "Northwestern Ontario",
-          },
-          {
-            "@type": "AdministrativeArea",
-            name: "Northern Ontario",
-          },
-          {
-            "@type": "Country",
-            name: "Canada",
-          },
-        ],
-        serviceType: [
-          "Business technology consulting",
-          "Technology advisory",
-          "Technology audits",
-          "Technology project management",
-          "Software implementation",
-          "CRM implementation",
-          "CRM support",
-          "Workflow improvement",
-          "Website development",
-          "Reporting and dashboards",
-          "Business process automation",
-          "Part-time technology support",
-        ],
-      })}
-    />
+        {
+          "@type": "AdministrativeArea",
+          name: "Northwestern Ontario",
+        },
+        {
+          "@type": "AdministrativeArea",
+          name: "Northern Ontario",
+        },
+        {
+          "@type": "Country",
+          name: "Canada",
+        },
+      ],
+      serviceType: [
+        "Business technology consulting",
+        "Technology advisory",
+        "Technology audits",
+        "Technology project management",
+        "Software implementation",
+        "CRM implementation",
+        "CRM support",
+        "Workflow improvement",
+        "Website development",
+        "Reporting and dashboards",
+        "Business process automation",
+        "Part-time technology support",
+      ],
+    })}
+  />
+</head>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script
-      src="https://kit.fontawesome.com/380f44c1dd.js"
-      crossorigin="anonymous"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat+Alternates:wght@600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-
-    <!-- Warmly -->
-     <script id="warmly-script-loader" src="https://opps-widget.getwarmly.com/warmly.js?clientId=3b73cbe7ccaf3c7cceadc871e9d4752e" defer></script>
-
-    <title>Northjay Solutions</title>
-  </head>
   <body>
     <Header />
     <main>

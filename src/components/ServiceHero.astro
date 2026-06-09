@@ -1,5 +1,5 @@
 ---
-const { heroHeading, heroText, heroImage, heroImageAlt } = Astro.props;
+const { heroHeading, heroText, heroImage, heroImageAlt, hero_button_cta, hero_btn_contact_href, book_btn_href } = Astro.props;
 ---
 
 <section
@@ -22,10 +22,11 @@ const { heroHeading, heroText, heroImage, heroImageAlt } = Astro.props;
         <!-- Added items-center to center the buttons on mobile -->
         <div class="flex flex-col sm:flex-row gap-4 mt-6 items-center sm:items-start sm: py-10">
           <a
-            href="#contact"
+            href={book_btn_href || "#contact"}
             class="w-full sm:w-auto inline-flex items-center justify-center bg-brand-orange text-white text-xl border border-white font-semibold rounded-lg px-4 py-2 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            I'm Ready!
+    
+            {hero_button_cta || "I'm Ready!"}
           </a>
 
           <a
