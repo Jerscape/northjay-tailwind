@@ -1,0 +1,27 @@
+
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroWithPicture from "../components/HeroWithPicture.astro";
+import FormMain from "../components/FormMain.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout>
+  <HeroWithPicture
+    heroHeading="Privacy Policy"
+    heroText="We are committed to protecting your personal information and your right to privacy. If you have any questions about this policy, please contact us."
+    heroImage="/images/privacy.png"
+    heroImageAlt="Privacy policy image"
+  />
+  <p>
+
+    Northjay Solutions Inc. respects your privacy. When you submit your information through this form, we may collect details such as your name, email address, phone number, business name,
+     and any other information you choose to provide. 
+    We use this information to respond to your inquiry, contact you about your request, provide information about our services, and follow up on potential business opportunities. 
+    We do not sell your personal information. We may use trusted service providers, such as CRM, email, website, or advertising platforms, to help us manage and respond to inquiries, 
+    and these providers may process information on our behalf. We retain personal information only as long as reasonably necessary for the purposes described above or as required by law. 
+    You may request access to, correction of, or deletion of your personal information by contacting Northjay Solutions Inc via the contact form below.
+  </p>
+  <FormMain />
+  <Footer/>
+</BaseLayout>
